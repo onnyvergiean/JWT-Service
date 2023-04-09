@@ -3,10 +3,12 @@ package main
 import (
 	"go-jwt/database"
 	"go-jwt/router"
+	"os"
 )
 
 func main() {	
 	database.StartDB()
+	var PORT = os.Getenv("PORT")
 	r:= router.StartApp()
-	r.Run(":8080")
+	r.Run(":" + PORT)
 }

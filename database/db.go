@@ -4,17 +4,18 @@ import (
 	"fmt"
 	"go-jwt/models"
 	"log"
+	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var (
-	host    = "localhost"
-	user	= "postgres"
-	password = "1234"
-	port    = "5432"
-	dbname = "postgres"
+	host    = os.Getenv("PGHOST")
+	user	= os.Getenv("PGUSER")
+	password = os.Getenv("PGPASSWORD")
+	port    = os.Getenv("PGPORT")
+	dbname = os.Getenv("PGDATABASE")
 	db *gorm.DB
 	err error
 )
